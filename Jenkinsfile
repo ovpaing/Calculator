@@ -12,7 +12,7 @@ pipeline{
     stages{
         stage('Checkout'){
             steps{
-                git branch: 'main', url: https://github.com/ovpaing/Calculator.git
+                git branch: 'main', url: 'https://github.com/ovpaing/Calculator.git'
             }
         }
        stage('Build'){
