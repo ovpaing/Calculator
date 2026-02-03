@@ -1,7 +1,8 @@
 pipeline{
     agent any
     tools{
-        maven "maven3.9"
+        maven 'maven3.9'
+        
     }
     environment {
             DOCKER_REPO = "calculator-image"
