@@ -16,16 +16,24 @@ pipeline{
                 git branch: 'main', url: 'https://github.com/ovpaing/Calculator.git'
             }
         }
-       stage('Build'){
+  stage('Build'){
             steps{
                 sh 'mvn clean compile'
             }
        }
-       stage('Test'){
-            steps{
-                sh 'mvn test'
+        stage('Unit Test'){
+   steps{
+    sh 'mvn test' 
+   }
+    post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
+     // jacoco execPattern: 'target/jacoco.exec', classPattern: 'target/classes', sourcePattern: 'src/main/java', inclusionPattern: '**/*.class'
+                }
             }
-       }
+  }
+     
+      
         stage('JaCoCo Report') {
             steps {
                 // Publish JaCoCo HTML report in Jenkins
