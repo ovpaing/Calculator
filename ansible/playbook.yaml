@@ -1,4 +1,4 @@
-- name: Deploy to Kubernetes
+cd- name: Deploy to Kubernetes
   hosts: all
 
   environment:
